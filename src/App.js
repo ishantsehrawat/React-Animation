@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import { useRef, useEffect } from 'react';
-import {TweenMax, Power3} from 'gsap';
+import {gsap, Power3} from 'gsap';
 import './App.css';
 
 function App() {
@@ -9,8 +9,8 @@ function App() {
 
   useEffect(() => {
     console.log(logoitem);
-    TweenMax.to(
-      logoitem,
+    gsap.to(
+      ".App-logo",
       .8,
       {
         opacity: 1,
@@ -18,8 +18,8 @@ function App() {
         ease: Power3.easeOut
       }
     )
-    TweenMax.to(
-      textitem,
+    gsap.to(
+      ".text",
       .8,
       {
         opacity: 1,
@@ -35,7 +35,7 @@ function App() {
         <img src={logo} 
         ref={el => {logoitem = el}}
         className="App-logo" alt="logo" />
-        <p ref={el => {textitem = el}}>
+        <p ref={el => {textitem = el}} className="text">
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
